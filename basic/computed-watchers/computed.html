@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computed</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Basic</h1>
+    <p>{{messageReverse}}</p>
+    <h1>Computed Caching vs Methods</h1>
+    <p>{{methods()}}</p>
+    <h1>Computed vs Watched Property</h1>
+    <button @click=methods>watch</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        basic: 'basic using',
+      },
+      watch: {
+        basic(cur, pre) {
+          console.log(cur,pre)
+        }
+      },
+      computed: {
+        messageReverse() {
+          return this.basic.split('').reverse().join('')
+        }
+      },
+      methods: {
+        methods() {
+          console.log(123)
+          this.basic + Math.random()
+        }
+      }
+    })
+  </script>
+</body>
+</html>

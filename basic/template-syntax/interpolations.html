@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interpolations</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ message }}</h1>
+    <h2 v-html="rawHtml"></h2>
+    <h2 :title={message}>Attribute</h2>
+    <h2>{{message ? 'using javascript expressions' : ''}}</h2>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          message: 'Interpolations',
+          rawHtml: 'Raw Html'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

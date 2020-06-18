@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directives</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 v-if="true">Directives</h1>
+    <h2>Arguments</h2>
+    <ol>
+      <li v-for="(item,index) in arguments" :key=index>{{item}}</li>
+    </ol>
+    <h2>Dynamic Arguments</h2>
+    <ol>
+      <li v-for="(item,index) in dynamicArguments" :key=index>{{item}}</li>
+    </ol>
+    <h2>modifiers</h2>
+    <ol>
+      <li v-for="(item,index) in modifiers" :key=index>{{item}}</li>
+    </ol>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        arguments: ['v-bind', 'v-on'],
+        dynamicArguments: ['v-bind:[attributeName]', 'v-on:[eventName]', 'v-bind:[someAttr]', 'v-bind:[javascript expressions]'],
+        modifiers: ['v-on:submit.prevent']
+      }
+    })
+  </script>
+</body>
+</html>
