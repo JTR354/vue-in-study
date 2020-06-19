@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <input
+      type="checkbox"
+      v-model="toggle"
+      true-value="yes"
+      false-value="no"
+    >
+    <input type="radio" v-model="pick" :value="a">
+    <input type="radio" v-model="pick" value="">
+    <ul>
+      <li v-for="(item,index) in dataArray" :key=index>{{item}}</li>
+    </ul>
+    <h1>{{obj.title}}</h1>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        toggle: '',
+        pick: '',
+        a: 'a',
+        dataArray: [2,3,4],
+        obj: {}
+      }
+    })
+    // var obj = {
+    //   a: {
+    //     x: 2,
+    //     c: 3
+    //   },
+    //   dd: [5,4, {f: 'new'}],
+    //   b:2,
+    //   c: function() {
+    //     console.log('i am a c')
+    //   }
+    // }
+    // var arr = [4,5,6]
+    // function iteroatorIn(o) {
+    //   for (let i in o) {
+    //     console.log(i)
+    //   }
+    // }
+    // function iteroatorOf(o) {
+    //   for (let i of o) {
+    //     console.log(i)
+    //   }
+    // }
+    // iteroatorIn(obj)
+    // iteroatorIn(arr)
+    // iteroatorOf(obj)
+    // iteroatorOf(arr)
+    // 对象遍历问题
+    // function deepCopy(obj) {
+    //   let copy = obj instanceof Array ? [] : {}
+    //   for (let key in obj) {
+    //     let value = obj[key]
+    //     copy[key] = typeof value === 'object' ? deepCopy(value) : value
+    //   }
+    //   return copy
+    // }
+    // var o1 = deepCopy(obj)
+    // o1.a.x = 666
+    // console.log(obj.a.x)
+  
+  </script>
+</body>
+</html>
